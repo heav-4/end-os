@@ -56,4 +56,4 @@ end
   
 parallel.waitForAll(unpack(filefuncs))
 
-if upd then os.reboot() end
+if upd then os.sleep(5) os.reboot() end
