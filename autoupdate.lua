@@ -1,7 +1,7 @@
 local url = "https://raw.githubusercontent.com/heav-4/end-os/main/"
 
 function get(filepath)
-  local fd,err = http.get(url..filepath)
+  local fd,err = http.get(url..filepath.."?apioform="..math.random(1,123489923))
   if not fd then print(err) sleep(3) os.reboot() end
   local data = fd:readAll()
   fd:close()
