@@ -38,15 +38,22 @@ while true do
         while true do
             term.write("> ")
             local input = io.read()
-            if input == "help" then
-                print("What for?")
-            else
-                print(("?"):rep(math.random(1,10)))
+            local list = fs.list("/cmds")
+            local found = false
+            for i,v in ipairs(list) do
+                if v == input or v..".lua" == input then
+                    shell.run("/cmds/"..v)
+                    found = true
+                    break
+                end
             end
+            if not found then print(("?"):rep(math.random(1,10))) end
         end
     end,function()
-        os.pullEventRaw("terminate")
-       if not fakedout then return end
+        while true do
+           os.pullEventRaw("terminate")
+           if not fakedout then return end
+        end
     end)
     if not fakedout then
         fakedout = true
