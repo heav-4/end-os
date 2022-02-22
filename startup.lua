@@ -41,7 +41,7 @@ while true do
             local list = fs.list("/cmds")
             local found = false
             for i,v in ipairs(list) do
-                if v == input or v..".lua" == input then
+                if v == input or v == input..".lua" then
                     shell.run("/cmds/"..v)
                     found = true
                     break
