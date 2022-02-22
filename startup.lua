@@ -1,7 +1,4 @@
 os.pullEvent = os.pullEventRaw
-term.clear()
-term.setCursorPos(1,1)
-print("end operating system version version^2")
 
 local stc = term.setTextColor
 local iscolor = term.isColor()
@@ -11,6 +8,10 @@ term.setTextColor = function(c)
 end
 
 local cmd = {}
+
+function cls() term.setCursorPos(1,1) term.clear() end
+
+cls()
 
 print('"""Autoupdating"""....')
 print("(replacing all files with new ones)")
@@ -28,14 +29,9 @@ f:close()
 
 shell.run("autoupdate.lua")
 
-
-
-function cls()
-    term.clear()
-    term.setCursorPos(1,1)
-end
-
 cls()
+
+print("end operating system version version^2")
 
 while true do
     parallel.waitForAny(function()
