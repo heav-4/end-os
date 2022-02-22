@@ -16,6 +16,7 @@ end
 
 function r(filepath)
   local fd = fs.open(filepath,"r")
+  if not fd then return "" end
   local info = fd:readAll()
   fd:close()
   return info
