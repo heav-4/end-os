@@ -1,10 +1,11 @@
-local url = "https://raw.githubusercontent.com/heav-4/end-os/"
+local url = "https://raw.githubusercontent.com/heav-4/end-os/main/"
 
 function get(filepath)
-  local fd = http.get(url..filepath)
-  if not fd then os.reboot() end
+  local fd,err = http.get(url..filepath)
+  if not fd then print(err) sleep(3) os.reboot() end
   local data = fd:readAll()
   fd:close()
+  return data
 end
 
 function w(filepath,info)
@@ -56,4 +57,4 @@ end
   
 parallel.waitForAll(unpack(filefuncs))
 
-if upd then os.sleep(5) os.reboot() end
+if upd then os.reboot() end
