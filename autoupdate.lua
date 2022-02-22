@@ -51,7 +51,7 @@ for i,v in ipairs(files) do
       print("updated "..v)
       upd = true
     end
-  end
+  end)
 end
   
 parallel.waitForAll(unpack(filefuncs))
