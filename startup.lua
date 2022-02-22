@@ -31,7 +31,7 @@ shell.run("autoupdate.lua")
 
 cls()
 
-print("end operating system version version^2")
+print("end operating system version version^2.1")
 
 while true do
     parallel.waitForAny(function()
